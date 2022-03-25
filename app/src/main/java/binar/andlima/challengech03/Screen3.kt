@@ -1,5 +1,6 @@
 package binar.andlima.challengech03
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -21,6 +22,7 @@ class Screen3 : Fragment() {
     }
 
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -34,18 +36,20 @@ class Screen3 : Fragment() {
         if (data?.usia == null){
             untuk_nama2.text = nama.nama
         } else {
+            //cek kondisi usia bernilai ganjil/genap
+            val usia = if (data.usia.toInt() % 2 == 0){
+                "${data.usia}, Bernilai Genap"
+            } else {
+                "${data.usia}, Bernilai Ganjil"
+            }
+
+            //diluar kondisi menampilkan nama, usia, alamat, pekerjaan
             untuk_nama.text = data.nama
-            untuk_usia.text = data.usia
+            untuk_usia.text = usia
             untuk_alamat.text = data.alamat
             untuk_pekerjaan.text = data.pekerjaan
         }
 
-//        if (data != null){
-//            untuk_nama.text = data.nama
-//            untuk_usia.text = data.usia
-//            untuk_alamat.text = data.alamat
-//            untuk_pekerjaan.text = data.pekerjaan
-//        }
 
         pergi_screen4.setOnClickListener {
 

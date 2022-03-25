@@ -31,15 +31,8 @@ class Screen4 : Fragment() {
             val almt = masukan_alamat.text.toString()
             val pkrj = masukan_pekerjaan.text.toString()
 
-            //cek kondisi umur bernilai ganjil/genap
-            val usia = if (umur % 2 == 0){
-                "$umur, Bernilai Genap"
-            } else {
-                "$umur, Bernilai Ganjil"
-            }
-
             //berpindah dan mengirim data ke screen 3
-            val data = DataClass(nama.nama, usia, almt, pkrj)
+            val data = DataClass(nama.nama, umur.toString(), almt, pkrj)
             val dataDiri = bundleOf("DATADIRI" to data)
             Navigation.findNavController(view).navigate(R.id.back_screen3, dataDiri)
         }
