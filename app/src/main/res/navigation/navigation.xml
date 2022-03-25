@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/screen1">
+
+    <fragment
+        android:id="@+id/screen1"
+        android:name="binar.andlima.challengech03.Screen1"
+        android:label="fragment_screen1"
+        tools:layout="@layout/fragment_screen1" >
+        <action
+            android:id="@+id/go_screen2"
+            app:destination="@id/screen2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/screen2"
+        android:name="binar.andlima.challengech03.Screen2"
+        android:label="fragment_screen2"
+        tools:layout="@layout/fragment_screen2" >
+        <action
+            android:id="@+id/go_screen3"
+            app:destination="@id/screen3" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/screen3"
+        android:name="binar.andlima.challengech03.Screen3"
+        android:label="fragment_screen3"
+        tools:layout="@layout/fragment_screen3" >
+        <action
+            android:id="@+id/go_screen4"
+            app:destination="@id/screen4" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/screen4"
+        android:name="binar.andlima.challengech03.Screen4"
+        android:label="fragment_screen4"
+        tools:layout="@layout/fragment_screen4" >
+        <action
+            android:id="@+id/back_screen3"
+            app:destination="@id/screen3" />
+    </fragment>
+</navigation>
