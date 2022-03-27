@@ -21,8 +21,6 @@ class Screen3 : Fragment() {
         return inflater.inflate(R.layout.fragment_screen3, container, false)
     }
 
-
-    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -32,22 +30,28 @@ class Screen3 : Fragment() {
         //menerima data dari screen 4
         val data = arguments?.getParcelable("DATADIRI") as DataClass?
 
-        //cek kondisi jika data null
-        if (data?.usia == null){
-            untuk_nama2.text = nama.nama
-        } else {
-            //cek kondisi usia bernilai ganjil/genap
-            val usia = if (data.usia.toInt() % 2 == 0){
+        fun dataDetail (){
+            untuk_nama.text = data?.nama
+            untuk_alamat.text = data?.alamat
+            untuk_pekerjaan.text = data?.pekerjaan
+
+            // cek usia ganjil genap
+            val usia = if (data?.usia?.toInt()!! % 2 == 0){
                 "${data.usia}, Bernilai Genap"
             } else {
                 "${data.usia}, Bernilai Ganjil"
             }
 
-            //diluar kondisi menampilkan nama, usia, alamat, pekerjaan
-            untuk_nama.text = data.nama
             untuk_usia.text = usia
-            untuk_alamat.text = data.alamat
-            untuk_pekerjaan.text = data.pekerjaan
+
+        }
+
+
+        //cek kondisi jika data null
+        if (data?.usia == null){
+            untuk_nama2.text = nama.nama
+        } else {
+            dataDetail ()
         }
 
 
