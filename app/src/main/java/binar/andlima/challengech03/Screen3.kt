@@ -34,12 +34,11 @@ class Screen3 : Fragment() {
             untuk_nama.text = data?.nama
             untuk_alamat.text = data?.alamat
             untuk_pekerjaan.text = data?.pekerjaan
-
-            // cek usia ganjil genap
+            // cek usia untuk genap/ganjil
             val usia = if (data?.usia?.toInt()!! % 2 == 0){
-                "${data.usia}, Bernilai Genap"
+                "${data.usia}, bernilai genap"
             } else {
-                "${data.usia}, Bernilai Ganjil"
+                "${data.usia}, bernilai ganjil"
             }
 
             untuk_usia.text = usia
